@@ -99,16 +99,28 @@ function getEditCi() {
           function (deps, textStatus, jqXHR) {
             $("#_id_edit").val(city._id);
             $("#name_ci_edit").val(city.name_ci);
-            $(selectCi).html("");
-            $.each(deps, function (i, dep) {
-              if (dep._id == city._idDep) {
-              $(childEdit1).val(dep._id).text(dep.name_dep);
-              } else {
-                $(childEdit2).val(dep._id).text(dep.name_dep);
-                const clone = $(childEdit2).clone(true);
-                $(selectCi).append(childEdit1).append(clone);
-              }
-            });
+            if (deps.length >= 2) {
+              $(selectCi).html("");
+              $.each(deps, function (i, dep) {
+                if (dep._id == city._idDep) {
+                  $(childEdit1).val(dep._id).text(dep.name_dep);
+                } else {
+                  $(childEdit2).val(dep._id).text(dep.name_dep);
+                  const clone = $(childEdit2).clone(true);
+                  $(selectCi).append(childEdit1).append(clone);
+                }
+              });
+            } else {
+              $.each(deps, function (i, dep) {
+                if (dep._id == city._idDep) {
+                  $(childEdit1).val(dep._id).text(dep.name_dep);
+                } else {
+                  $(childEdit2).val(dep._id).text(dep.name_dep);
+                  const clone = $(childEdit2).clone(true);
+                  $(selectCi).append(childEdit1).append(clone);
+                }
+              });
+            }
           }
         );
       }

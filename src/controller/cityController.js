@@ -33,14 +33,18 @@ controller.save = async function (req, res, next) {
   try {
     const { name_ci } = req.body;
     const { _idDep } = req.body;
-    const arr = name_ci.split(" ");
-    for (let i = 0; i < arr.length; i++) {
-      arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);  
+    if (_idDep == undefined) {
+      res.redirect('/addci');
+    } else{
+      const arr = name_ci.split(" ");
+      for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);  
+      }
+      const str2 = arr.join(" ");
+      const addCi = {name_ci: str2, _idDep}
+      await City.create(addCi);
+      res.redirect('/');
     }
-    const str2 = arr.join(" ");
-    const addCi = {name_ci: str2, _idDep}
-    await City.create(addCi);
-    res.redirect('/');
   } catch (error) {
     console.error(error);
   }
@@ -67,7 +71,6 @@ controller.edit = function (req, res, next) {
   res.sendFile(path.join(__dirname, '../public/editCity.html'));
 }
 controller.oneditci = async function (req, res, next) {
-  console.log(req.params);
   const { _id } = req.params;
   const ciDB = await City.findById(_id);
   res.send(ciDB); 
@@ -76,14 +79,18 @@ controller.update = async function (req, res, next) {
   const { _id } = req.body;
   const { name_ci } = req.body;
   const { _idDep } = req.body;
-  const arr = name_ci.split(' ');
-  for (let i = 0; i < arr.length; i++) {
-    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+  if (_idDep != '') {
+    const arr = name_ci.split(' ');
+    for (let i = 0; i < arr.length; i++) {
+      arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+    }
+    const str2 = arr.join(' ');
+    const editCi = {name_ci: str2, _idDep}
+    await City.findByIdAndUpdate(_id, editCi);
+    res.redirect('/');
+  } else {
+    res.redirect('/editci');
   }
-  const str2 = arr.join(' ');
-  const editCi = {name_ci: str2, _idDep}
-  await City.findByIdAndUpdate(_id, editCi);
-  res.redirect('/');
 }
 controller.searchci = async function (req, res, next) {
   const { data } = req.query;
