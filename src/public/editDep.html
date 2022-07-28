@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap Icons 1.8.2 Minified CSS -->
+  <link rel='stylesheet' href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+  <!-- Bootstrap 5.1.3 Minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- My Style Here -->
+  <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+  <!-- My Ico Here -->
+  <link rel="shortcut icon" type="image/x-icon" href="/static/img/colombia_flags.png">
+  <title>Edit Departament</title>
+</head>
+<body>
+  <!-- ========== Start navbar ========== -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand">Edit Departament</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/"><i class="bi bi-house-fill"></i> Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/departament"><i class="bi bi-house-door-fill"></i> Departament</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span id="person"></span> <i class="bi bi-person-square"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/logut"><i class="bi bi-door-open-fill"></i> Get Logut?</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Chose...
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/addci">Add City</a></li>
+                <li><a class="dropdown-item" href="/adddep">Add Departament</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search">
+          </form> -->
+        </div>
+      </div>
+    </nav>
+  <!-- ========== End navbar ========== -->
+  <!-- ========== Start container ========== -->
+    <div class="container-fluid mt-5">
+      <div class="row mt-3">
+        <div class="col-xl-12 col-lg-10 col-md-8 col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title mb-3">Edit Current Departament</h5>
+              <form action="/editdep" method="post">
+                <div class="input-group mb-3">
+                  <input type="hidden" name="_id" id="_id_edit" value="">
+                </div>
+                <div class="input-group mb-3">
+                  <label for="" class="input-group-text"><i class="bi bi-info-circle-fill"></i></label>
+                  <input type="text" name="name_dep" id="name_dep_edit" class="form-control" placeholder="Name Departament..." required>
+                </div>
+                <div class="d-grid gap-2">
+                  <button type="submit" class="btn btn-success"><i class="bi bi-send-fill"></i></button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- ========== End container ========== -->
+  <!-- BootsTrap 5.1.3 Minified JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  <!-- Jquery 3.6.0 Minified -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <!-- CryptoJS AES 3.1.2 Minified -->
+  <script src="/static/js/crypto-js-aes.min.js">  
+  </script>
+  <!-- My Script Here -->
+  <script src="/static/js/dep.public.js"></script>
+</body>
+</html>

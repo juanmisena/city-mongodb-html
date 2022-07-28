@@ -1,0 +1,9 @@
+.col-sm-4 {margin: 0 auto;}
+.col-md-8 {margin: 0 auto;}
+#name_dep, #name_dep_edit, #searchDep, #name_ci, #name_ci_edit, #searchCi {text-transform: capitalize;}
+#check_pass, #check_pass2, #check_pass3, #gen_pass2 {margin-top: 1px; margin-right: 10px; padding: 0px 0px 20px 20px; cursor: pointer; height: 26px; width: 24px;}
+label[for="input-group-text"] {padding: 0px 0px 0px 4px; width: 27px;}
+#gen_pass2 {margin-left: 20px;}
+#labelgen {margin-right: 5px;}
+.btn-light {background-color: #212529; color: #f8f9fa; border-color: #f8f9fa;}
+.btn-outline-dark {margin-right: 10px;}
